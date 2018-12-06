@@ -1,6 +1,6 @@
 
 import React, { Component } from 'react';
-import {Text, View, ImageBackground, Image, TouchableWithoutFeedback} from 'react-native';
+import {StyleSheet, Text, View, ImageBackground, Image, TouchableWithoutFeedback} from 'react-native';
 
 class HomeScreen extends Component {
 
@@ -19,34 +19,16 @@ class HomeScreen extends Component {
         <ImageBackground
           source={require('../../assets/background.png')}
           imageStyle={{ resizeMode: 'stretch' }}
-          style={{
-              flex: 1,
-              flexDirection: 'column',
-              alignItems: 'stretch',
-              justifyContent: 'space-between'
-            }}>
-            <View style={{
-              flex: 1,
-              alignItems: 'center',
-              justifyContent: 'center'
-            }}>
+          style={styles.background}>
+            <View style={styles.wrapperLogoTripPlanner}>
               <Image source={require('../../assets/logo-tripplanner.png')} />
             </View>
-            <View style={{
-              flexDirection: 'row',
-              alignItems: 'flex-end',
-              justifyContent: 'center',
-              paddingBottom: 28
-            }}>
+            <View style={styles.wrapperLogoDevPleno}>
               <Image source={require('../../assets/logo-devpleno.png')} />
             </View>
             <TouchableWithoutFeedback onPress={ this.handleCounter }>
-              <View style={{
-                backgroundColor: 'white',
-                paddingBottom: 16,
-                paddingTop: 16
-              }}>
-                <Text style={{ textAlign: 'center', fontSize: 18 }}>Come on now, touch me, babe! { this.state.counter }</Text>
+              <View style={styles.buttonBackground}>
+                <Text style={styles.buttonText}>Come on now, touch me, babe! { this.state.counter }</Text>
               </View>
             </TouchableWithoutFeedback>
         </ImageBackground>
@@ -54,3 +36,32 @@ class HomeScreen extends Component {
     }
 }
 export default HomeScreen
+
+const styles = StyleSheet.create({
+  background: {
+    flex: 1,
+    flexDirection: 'column',
+    alignItems: 'stretch',
+    justifyContent: 'space-between'
+  },
+  wrapperLogoTripPlanner: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center'
+  },
+  wrapperLogoDevPleno: {
+    flexDirection: 'row',
+    alignItems: 'flex-end',
+    justifyContent: 'center',
+    paddingBottom: 28
+  },
+  buttonBackground: {
+    backgroundColor: 'white',
+    paddingBottom: 16,
+    paddingTop: 16
+  },
+  buttonText: {
+    textAlign: 'center',
+    fontSize: 18
+  }
+})
